@@ -7,9 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Mtvs\EloquentHashids\HashidRouting;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Book extends Model
+class Comment extends Model
 {
-
     use HasFactory, HasHashid, HashidRouting;
 
 
@@ -19,29 +18,14 @@ class Book extends Model
 
     protected $guarded = [];
 
-    public function genre()
-    {
-        return $this->belongsTo(Genre::class);
-    }
-
-    public function author()
-    {
-        return $this->belongsTo(Author::class);
-    }
-
-    public function publisher()
-    {
-        return $this->belongsTo(Publisher::class);
-    }
-
-
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function comments()
+    public function book()
     {
-        return $this->hasMany(Comment::class);
+        return $this->belongsTo(Book::class);
     }
+
 }

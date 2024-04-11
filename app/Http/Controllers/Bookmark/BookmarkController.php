@@ -17,10 +17,6 @@ class BookmarkController extends Controller
         $data = [
             'breadcrumbs' => [
                 [
-                    'title' => 'E-Library',
-                    'url' => route('apps.dashboard'),
-                ],
-                [
                     'title' => 'Penanda',
                     'is_active' => true,
                 ],

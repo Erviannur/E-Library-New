@@ -17,6 +17,9 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    protected $guarded = [];
+    
     protected $fillable = [
         'name',
         'email',
@@ -56,5 +59,15 @@ class User extends Authenticatable
     public function bookmarks()
     {
         return $this->hasMany(Bookmark::class);
+    }
+
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

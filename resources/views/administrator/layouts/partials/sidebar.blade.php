@@ -11,20 +11,20 @@
                         <a href="{{ route('apps.dashboard')}}"><i class="fas fa-home"></i> <span>Beranda</span></a>
                     </li>
                     <li class="menu-title">
-                        <span>Menu Anggota</span>
+                        <span>Menu Pengunjung</span>
                     </li>
                 @endif
 
                 @if (auth()->user()->role->name == 'Anggota' || auth()->user()->role->name == 'Administrator' )
+                    <li class="{{ (request()->is('apps/profile*')) ? 'active' : '' }}">
+                        <a href="{{ route('guest.profile')}}"><i class="fas fa-user"></i> <span>Profil</span></a>
+                    </li>
                     <li class="{{ (request()->is('apps/collections*')) ? 'active' : '' }}">
                         <a href="{{ route('guest.books')}}"><i class="fas fa-book"></i> <span>Buku</span></a>
                     </li>
-                    {{-- <li class="{{ (request()->is('apps/collections*')) ? 'active' : '' }}">
-                        <a href="#"><i class="fas fa-heart"></i> <span>Favorite</span></a>
+                    <li class="{{ (request()->is('apps/bookmarks*')) ? 'active' : '' }}">
+                        <a href="{{ route('guest.bookmarks') }}"><i class="fas fa-bookmark"></i> <span>Penanda</span></a>
                     </li>
-                    <li class="{{ (request()->is('apps/collections*')) ? 'active' : '' }}">
-                        <a href="#"><i class="fas fa-bookmark"></i> <span>Penanda</span></a>
-                    </li> --}}
                 @endif
 
                 @if (auth()->user()->role->name == 'Administrator' )
@@ -47,10 +47,6 @@
                 <li class="{{ (request()->is('apps/activities*')) ? 'active' : '' }}">
                     <a href="{{ route('apps.activity')}}"><i class="fas fa-tasks"></i> <span>Aktivitas</span></a>
                 </li>
-                <li class="{{ (request()->is('apps/users*')) ? 'active' : '' }}">
-                    <a href="#"><i class="fas fa-comments"></i> <span>Review</span></a>
-                </li>
-
                 <li class="menu-title">
                     <span>Penagaturan</span>
                 </li>

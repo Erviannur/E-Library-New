@@ -7731,7 +7731,7 @@ table.table-inbox tbody tr.checked {
 
 .blog-image img {
     border-radius: 10px;
-    height: 300px;
+    height: auto;
     width: 100%;
     object-fit: cover;
     -webkit-transform: translateZ(0);
@@ -11302,5 +11302,17 @@ option:focus {
 }
 
 .image-overlay:hover {
+    cursor: pointer;
+}
+
+.show-pdf {
+    color: #F7941D;
+}
+
+.show-pdf:hover {
+    color: #F7941D;
+}
+
+.delete-comment i {
     cursor: pointer;
 }

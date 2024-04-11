@@ -4,13 +4,15 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\Bookmark\BookmarkController;
 use App\Http\Controllers\Administrator\Book\BookController;
 use App\Http\Controllers\Administrator\Genre\GenreController;
-use App\Http\Controllers\Administrator\Author\AuthorController;
 
+use App\Http\Controllers\Administrator\Author\AuthorController;
 use App\Http\Controllers\Administrator\Activity\ActivityController;
 use App\Http\Controllers\Administrator\Dashboard\DashboardController;
+
 use App\Http\Controllers\Administrator\Publisher\PublisherController;
 use App\Http\Controllers\Book\BookController as CollectionController;
 
@@ -29,13 +31,19 @@ Route::middleware('guest')->group( function() {
 Route::prefix('apps')->middleware('auth')->group( function() {
     Route::get('dashboard',[DashboardController::class, 'index'])->name('apps.dashboard');
 
-
     Route::prefix('collections')->group( function() {
         Route::get('',[CollectionController::class, 'index'])->name('guest.books');
         Route::get('search',[CollectionController::class, 'search'])->name('guest.books.search');
         Route::get('add-to-bookmark/{bookId}', [CollectionController::class, 'addToBookmark']);
         Route::get('{slug}',[CollectionController::class, 'detail'])->name('guest.books.details');
+        Route::post('store/{book}/comments',[CollectionController::class, 'store'])->name('guest.books.store');
+        Route::get('{comment}/delete',[CollectionController::class, 'delete'])->name('guest.books.delete-comment');
     });
+
+    Route::prefix('profile')->group( function() {
+        Route::get('',[ProfileController::class, 'index'])->name('guest.profile');
+    });
+
     Route::prefix('bookmarks')->group( function() {
         Route::get('',[BookmarkController::class, 'index'])->name('guest.bookmarks');
         Route::delete('{bookmark}/delete',[BookmarkController::class, 'delete'])->name('guest.bookmarks.delete');

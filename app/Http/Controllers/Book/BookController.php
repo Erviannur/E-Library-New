@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Book;
 use Carbon\Carbon;
 use App\Models\Book;
 use App\Models\Genre;
+use App\Models\Comment;
 use App\Models\Activity;
 use App\Models\Bookmark;
 use App\Models\Favorite;
@@ -32,16 +33,11 @@ class BookController extends Controller
         $data = [
             'breadcrumbs' => [
                 [
-                    'title' => 'E-Library',
-                    'url' => route('apps.dashboard'),
-                ],
-                [
                     'title' => 'Koleksi Buku',
                     'is_active' => true,
                 ],
             ],
             'books' => $books,
-            'filters' => Genre::orderBy('name','ASC')->get(),
         ];
 
         return view('book.index', $data);
@@ -91,7 +87,7 @@ class BookController extends Controller
             'book_id' => $bookId
         ]);
 
-        $activity = Activity::insert([
+        $activity = Activity::create([
             'user_id' => $userId,
             'date' => Carbon::now(),
             'type_activity' => 'Menambah Buku Ke Penanda',
@@ -103,13 +99,9 @@ class BookController extends Controller
     public function detail($slug)
     {
         $book = Book::where('slug', $slug)->first();
+        $comments = $book->comments()->with('user')->orderByDesc('created_at')->get();
         $data = [
-            'title' => $book->title,
             'breadcrumbs' => [
-                [
-                    'title' => 'E-Library',
-                    'url' => route('guest.books'),
-                ],
                 [
                     'title' => 'Koleksi Buku',
                     'url' => route('guest.books'),
@@ -120,6 +112,35 @@ class BookController extends Controller
                 ],
             ],
             'book' => $book,
+            'comments' => $comments,
         ];
+
+        return view('book.detail', $data);
+    }
+
+    public function store(Request $request,Book $book)
+    {
+
+        $request->validate([
+            'comment' => 'required|string',
+        ]);
+
+        $comment = Comment::create([
+            'user_id' => auth()->user()->id,
+            'book_id' => $book->id,
+            'comment' => $request->comment
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function delete(Comment $comment)
+    {
+        if (auth()->user()->id === $comment->user_id) {
+            $comment->delete();
+            return redirect()->back();
+        } else {
+            return redirect()->back();
+        }
     }
 }

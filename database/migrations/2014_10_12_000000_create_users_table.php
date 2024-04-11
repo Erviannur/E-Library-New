@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('image')->nullable();
             $table->foreignId('role_id');
+            $table->text('address')->nullable();
+            $table->enum('gender', ['Male', 'Female'])->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->foreign('role_id')->references('id')->on('roles')->onUpdate('restrict')->onDelete('cascade');
