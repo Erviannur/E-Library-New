@@ -21,7 +21,7 @@
         <div class="branding">
             <div class="container-fluid position-relative py-3">
                 <div class="logo-wrapper">
-	                <div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2" src="{{ asset('assets/img/site-logo.svg')}}" alt="logo" ><span class="logo-text">DevBook</span></a></div>
+	                <div class="site-logo"><a class="navbar-brand" href="{{ route('home')}}"><img class="logo-icon me-2" src="{{ asset('assets/img/icon.png')}}" width="10%" alt="logo" ></a></div>
                 </div><!--//docs-logo-wrapper-->
 
             </div><!--//container-->
@@ -34,84 +34,23 @@
 			    <div class="col-12 col-md-7 pt-5 mb-5 align-self-center">
 				    <div class="promo pe-md-3 pe-lg-5">
 					    <h1 class="headline mb-3">
-						    Free Book &amp; eBook <br>Landing Page Template
+						    E-Library
 					    </h1><!--//headline-->
 					    <div class="subheadline mb-4">
-						    A free Bootstrap 5 template for developers and programmers who want to self-publish books. Download now and start selling your book right away!
-
+						    E-library merupakan sebuah website Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat natus eligendi nulla doloribus optio itaque amet atque exercitationem nemo veniam!
 					    </div><!--//subheading-->
 
 					    <div class="cta-holder row gx-md-3 gy-3 gy-md-0">
 						    <div class="col-12 col-md-auto">
-						        <a class="btn btn-secondary w-100" href="{{ route('auth')}}">Login E-Library</a>
+						        <a class="btn btn-secondary w-100" href="{{ route('auth')}}">Login</a>
 						    </div>
 					    </div><!--//cta-holder-->
-
-					    <div class="hero-quotes mt-5">
-						    <div id="quotes-carousel" class="quotes-carousel carousel slide carousel-fade mb-5" data-bs-ride="carousel" data-bs-interval="8000">
-								<div class="carousel-indicators">
-									<button type="button" data-bs-target="#quotes-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-									<button type="button" data-bs-target="#quotes-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-									<button type="button" data-bs-target="#quotes-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-								</div>
-
-							    <div class="carousel-inner">
-								    <div class="carousel-item active">
-								        <blockquote class="quote p-4 theme-bg-light">
-									        "Excellent Book! Add your book reviews here consectetur adipiscing elit. Aliquam euismod nunc porta urna facilisis tempor. Praesent mauris neque, viverra quis erat vitae, auctor imperdiet nisi."
-								        </blockquote><!--//item-->
-								        <div class="source row gx-md-3 gy-3 gy-md-0 align-items-center">
-									        <div class="col-12 col-md-auto text-center text-md-start">
-									            <img class="source-profile" src="{{ asset('assets/img/profile-1.png')}}" alt="image" >
-									        </div><!--//col-->
-									        <div class="col source-info text-center text-md-start">
-										        <div class="source-name">James Doe</div>
-										        <div class="soure-title">Co-Founder, Startup Week</div>
-										    </div><!--//col-->
-								        </div><!--//source-->
-								    </div><!--//carousel-item-->
-								    <div class="carousel-item">
-								        <blockquote class="quote p-4 theme-bg-light">
-									        "Highly recommended consectetur adipiscing elit. Proin et auctor dolor, sed venenatis massa. Vestibulum ullamcorper lobortis nisi non placerat praesent mauris neque"
-								        </blockquote><!--//item-->
-								        <div class="source row gx-md-3 gy-3 gy-md-0 align-items-center">
-									        <div class="col-12 col-md-auto text-center text-md-start">
-									            <img class="source-profile" src="{{ asset('assets/img/profile-2.png')}}" alt="image" >
-									        </div><!--//col-->
-									        <div class="col source-info text-center text-md-start">
-										        <div class="source-name">Jean Doe</div>
-										        <div class="soure-title">Co-Founder, Startup Week</div>
-										    </div><!--//col-->
-								        </div><!--//source-->
-								    </div><!--//carousel-item-->
-								    <div class="carousel-item">
-								        <blockquote class="quote p-4 theme-bg-light">
-									        "Awesome! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam euismod nunc porta urna facilisis tempor. Praesent mauris neque, viverra quis erat vitae."
-								        </blockquote><!--//item-->
-								        <div class="source row gx-md-3 gy-3 gy-md-0 align-items-center">
-									        <div class="col-12 col-md-auto text-center text-md-start">
-									            <img class="source-profile" src="{{ asset('assets/img/profile-3.png')}}" alt="image" >
-									        </div><!--//col-->
-									        <div class="col source-info text-center text-md-start">
-										        <div class="source-name">Andy Doe</div>
-										        <div class="soure-title">Frontend Developer, Company Lorem</div>
-										    </div><!--//col-->
-								        </div><!--//source-->
-								    </div><!--//carousel-item-->
-								</div><!--//carousel-inner-->
-							</div><!--//quotes-carousel-->
-
-					    </div><!--//hero-quotes-->
 				    </div><!--//promo-->
 			    </div><!--col-->
 			    <div class="col-12 col-md-5 mb-5 align-self-center">
 				    <div class="book-cover-holder">
-					    <img class="img-fluid book-cover" src="{{ asset('assets/img/devbook-cover.png')}}" alt="book cover" >
-					    <div class="book-badge d-inline-block shadow">
-						    New<br>Release
-					    </div>
+					    <img class="img-fluid book-cover" src="{{ asset('assets/img/book.png')}}" width="80%" alt="book cover" >
 				    </div><!--//book-cover-holder-->
-				    <div class="text-center"><a class="theme-link scrollto" href="#reviews-section">See all book reviews</a></div>
 			    </div><!--col-->
 		    </div><!--//row-->
 	    </div><!--//container-->
@@ -195,189 +134,57 @@
     <section id="content-section" class="content-section">
 	    <div class="container">
 		    <div class="single-col-max mx-auto">
-		    <h2 class="section-heading text-center mb-5">What's Included</h2>
+		    <h2 class="section-heading text-center mb-5">Apa yang didapatkan?</h2>
 			    <div class="row">
 				    <div class="col-12 col-md-6">
 					    <div class="figure-holder mb-5">
-						    <img class="img-fluid" src="{{ asset('assets/img/devbook-devices.png')}}" alt="image" >
+						    <img class="img-fluid" src="{{ asset('assets/img/book.png')}}" width="70%" alt="image" >
 					    </div><!--//figure-holder-->
 				    </div><!--//col-->
 				    <div class="col-12 col-md-6 mb-5">
 					    <div class="key-points mb-4 text-center">
 						    <ul class="key-points-list list-unstyled mb-4 mx-auto d-inline-block text-start">
-							    <li><i class="fas fa-check-circle me-2"></i>List your book's content here.</li>
-							    <li><i class="fas fa-check-circle me-2"></i>PDF fermentum tincidunt erat.</li>
-							    <li><i class="fas fa-check-circle me-2"></i>EPUB curabitur fermentum.</li>
-							    <li><i class="fas fa-check-circle me-2"></i>Lorem ipsum dolor sit amet.</li>
-							    <li><i class="fas fa-check-circle me-2"></i>Praesent molestie odio risus. </li>
-							    <li><i class="fas fa-check-circle me-2"></i>Kindle curabitur fermentum.</li>
-							    <li><i class="fas fa-check-circle me-2"></i>Kindle curabitur fermentum.</li>
-							    <li><i class="fas fa-check-circle me-2"></i>Kindle curabitur fermentum.</li>
+							    <li><i class="fas fa-check-circle me-2"></i>Koleksi buku yang lengkap.</li>
+							    <li><i class="fas fa-check-circle me-2"></i>Diperbarui setiap 1 minggu.</li>
+							    <li><i class="fas fa-check-circle me-2"></i>Bisa didownload.</li>
+							    <li><i class="fas fa-check-circle me-2"></i>Dibaca dimana saja.</li>
+							    <li><i class="fas fa-check-circle me-2"></i>Hemat penyimpanan.</li>
+							    <li><i class="fas fa-check-circle me-2"></i>Mudah diakses dimana saja.</li>
 						    </ul>
-						    <div class="text-center"><a class="btn btn-primary" href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/devbook-free-bootstrap-5-book-ebook-landing-page-template-for-developers/">I want this book</a></div>
 					    </div><!--//key-points-->
-
 				    </div><!--//col-12-->
 			    </div><!--//row-->
 		    </div><!--//single-col-max-->
 	    </div><!--//container-->
     </section><!--//content-section-->
 
-    <section id="audience-section" class="audience-section py-5">
-	    <div class="container">
-		    <h2 class="section-heading text-center mb-4">Who This Book Is For</h2>
-		    <div class="section-intro single-col-max mx-auto text-center mb-5">
-			    List your target readers in this section and back up with reviews. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sodales sit amet neque sit amet molestie. Vivamus hendrerit nisi condimentum erat tempus, vitae accumsan odio euismod.
-		    </div><!--//section-intro-->
-		    <div class="audience mx-auto">
-			    <div class="item row gx-3">
-				    <div class="col-auto item-icon"><i class="fas fa-user-check"></i></div>
-				    <div class="col">
-					    <h4 class="item-title">Software Developers</h4>
-					    <div class="item-desc">Learn lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sodales sit amet neque sit amet molestie.</div>
-				    </div><!--//col-->
-			    </div><!--//item-->
-			    <div class="item row gx-3">
-				    <div class="col-auto item-icon"><i class="fas fa-user-check"></i></div>
-				    <div class="col">
-					    <h4 class="item-title">App Developers</h4>
-					    <div class="item-desc">Learn lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sodales sit amet neque sit amet molestie.</div>
-				    </div><!--//col-->
-			    </div><!--//item-->
-			    <div class="item row gx-3">
-				    <div class="col-auto item-icon"><i class="fas fa-user-check"></i></div>
-				    <div class="col">
-					    <h4 class="item-title">Web Developers</h4>
-					    <div class="item-desc">Learn lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sodales sit amet neque sit amet molestie.</div>
-				    </div><!--//col-->
-			    </div><!--//item-->
-			    <div class="item row gx-3">
-				    <div class="col-auto item-icon"><i class="fas fa-user-check"></i></div>
-				    <div class="col">
-					    <h4 class="item-title">Product Designers</h4>
-					    <div class="item-desc">Learn lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sodales sit amet neque sit amet molestie.</div>
-				    </div><!--//col-->
-			    </div><!--//item-->
-		    </div><!--//audience-->
-	    </div><!--//container-->
-    </section><!--//audience-section-->
-
-    <section id="form-section" class="form-section">
-	    <div class="container">
-		    <div class="lead-form-wrapper single-col-max mx-auto theme-bg-light rounded p-5">
-			    <h2 class="form-heading text-center">Get A Free Preview</h2>
-			    <div class="form-intro text-center mb-3">Sign up to get a free preview of the book. <br>You can offer visitors free book previews to generate leads.</div>
-			    <div class="form-wrapper mx-auto">
-					<form class="signup-form row g-2 align-items-center">
-	                    <div class="col-12 col-lg-9">
-	                        <label class="sr-only" for="semail">Email</label>
-	                        <input type="email" id="semail" name="semail1" class="form-control me-md-1 semail" placeholder="Your email">
-	                    </div>
-	                    <div class="col-12 col-lg-3">
-	                        <button type="submit" class="btn btn-primary btn-submit w-100">Send</button>
-	                    </div>
-	                </form><!--//signup-form-->
-			    </div><!--//form-wrapper-->
-		    </div><!--//lead-form-wrapper-->
-	    </div><!--//container-->
-    </section><!--//form-section-->
 
     <section id="reviews-section" class="reviews-section py-5">
 	    <div class="container">
-		    <h2 class="section-heading text-center">Book Reviews</h2>
-		    <div class="section-intro text-center single-col-max mx-auto mb-5">See what our readers are saying. </div>
+		    <h2 class="section-heading text-center">Review</h2>
+		    <div class="section-intro text-center single-col-max mx-auto mb-5">Apa komentar pengunjung mengenai e-library ini?. </div>
 		    <div class="row justify-content-center">
-			    <div class="item col-12 col-lg-4 p-3 mb-4">
-				    <div class="item-inner theme-bg-light rounded p-4">
 
+                @foreach ($comments as $item)
+			    <div class="item col-12 col-lg-4 p-3 mb-4">
+				    <div class="item-inner theme-bg-light rounded p-4">
 					    <blockquote class="quote">
-					        "Excellent Book! Add your book review here consectetur adipiscing elit. Aliquam euismod nunc porta urna facilisis tempor. "
+					        "{{ Str::limit($item->comment, 200) }}"
 				        </blockquote><!--//item-->
-				        <div class="source row gx-md-3 gy-3 gy-md-0">
+				        <div class="source row gx-md-3 gy-3 gy-md-0 align-items-center">
 					        <div class="col-12 col-md-auto text-center text-md-start">
-					            <img class="source-profile" src="{{ asset('assets/img/profile-1.png')}}" alt="image" >
+					            <img class="source-profile" src="{{ asset('storage/images/users/' . $item->user->image)}}" alt="image" >
 					        </div><!--//col-->
 					        <div class="col source-info text-center text-md-start">
-						        <div class="source-name">James Doe</div>
-						        <div class="soure-title">Co-Founder, Startup Week</div>
+						        <div class="source-name">{{ $item->user->name }}</div>
 						    </div><!--//col-->
 				        </div><!--//source-->
 				        <div class="icon-holder"><i class="fas fa-quote-right"></i></div>
 				    </div><!--//inner-->
 			    </div><!--//item-->
-			    <div class="item col-12 col-lg-4 p-3 mb-4">
-				    <div class="item-inner theme-bg-light rounded p-4">
-					    <blockquote class="quote">
-					        "Great Book! Add your book review here consectetur adipiscing elit. Aliquam euismod nunc porta urna facilisis tempor. Praesent mauris neque."
-				        </blockquote><!--//item-->
-				        <div class="source row gx-md-3 gy-3 gy-md-0 align-items-center">
-					        <div class="col-12 col-md-auto text-center text-md-start">
-					            <img class="source-profile" src="{{ asset('assets/img/profile-2.png')}}" alt="image" >
-					        </div><!--//col-->
-					        <div class="col source-info text-center text-md-start">
-						        <div class="source-name">Jean Doe</div>
-						        <div class="soure-title">Co-Founder, Company Tristique</div>
-						    </div><!--//col-->
-				        </div><!--//source-->
+                @endforeach
 
-				         <div class="icon-holder"><i class="fas fa-quote-right"></i></div>
-				    </div><!--//inner-->
-			    </div><!--//item-->
-			    <div class="item col-12 col-lg-4 p-3 mb-4">
-				    <div class="item-inner theme-bg-light rounded p-4">
-					    <blockquote class="quote">
-					        "Excellent Book! Add your book review here consectetur adipiscing elit. Pellentesque ac leo turpis. Phasellus imperdiet id ligula tempor imperdiet."
-				        </blockquote><!--//item-->
-				        <div class="source row gx-md-3 gy-3 gy-md-0 align-items-center">
-					        <div class="col-12 col-md-auto text-center text-md-start">
-					            <img class="source-profile" src="{{ asset('assets/img/profile-3.png')}}" alt="image" >
-					        </div><!--//col-->
-					        <div class="col source-info text-center text-md-start">
-						        <div class="source-name">Tom Doe</div>
-						        <div class="soure-title">Product Designer, Company Lorem</div>
-						    </div><!--//col-->
-				        </div><!--//source-->
-				         <div class="icon-holder"><i class="fas fa-quote-right"></i></div>
-				    </div><!--//inner-->
-			    </div><!--//item-->
-			    <div class="item col-12 col-lg-4 p-3 mb-4">
-				    <div class="item-inner theme-bg-light rounded p-4">
-					    <blockquote class="quote">
-					        "Another book review here consectetur adipiscing elit. Pellentesque ac leo turpis. Phasellus imperdiet id ligula tempor imperdiet."
-				        </blockquote><!--//item-->
-				        <div class="source row gx-md-3 gy-3 gy-md-0 align-items-center">
-					        <div class="col-12 col-md-auto text-center text-md-start">
-					            <img class="source-profile" src="{{ asset('assets/img/profile-4.png')}}" alt="image" >
-					        </div><!--//col-->
-					        <div class="col source-info text-center text-md-start">
-						        <div class="source-name">Alice Doe</div>
-						        <div class="soure-title">App Developer, Company Ipsum</div>
-						    </div><!--//col-->
-				        </div><!--//source-->
-				        <div class="icon-holder"><i class="fas fa-quote-right"></i></div>
-				    </div><!--//inner-->
-			    </div><!--//item-->
-			    <div class="item col-12 col-lg-4 p-3 mb-4">
-				    <div class="item-inner theme-bg-light rounded p-4">
-					    <blockquote class="quote">
-					        "Another book review here consectetur adipiscing elit. Pellentesque ac leo turpis. Phasellus imperdiet id ligula tempor imperdiet."
-				        </blockquote><!--//item-->
-				        <div class="source row gx-md-3 gy-3 gy-md-0 align-items-center">
-					        <div class="col-12 col-md-auto text-center text-md-start">
-					            <img class="source-profile" src="{{ asset('assets/img/profile-5.png')}}" alt="image" >
-					        </div><!--//col-->
-					        <div class="col source-info text-center text-md-start">
-						        <div class="source-name">Sam Doe</div>
-						        <div class="soure-title">Co-Founder, Company Integer</div>
-						    </div><!--//col-->
-				        </div><!--//source-->
-				        <div class="icon-holder"><i class="fas fa-quote-right"></i></div>
-				    </div><!--//inner-->
-			    </div><!--//item-->
 		    </div><!--//row-->
-		    <div class="text-center">
-		        <a class="btn btn-primary" href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/devbook-free-bootstrap-5-book-ebook-landing-page-template-for-developers/">Get Your Copy Today</a>
-		    </div>
 	    </div><!--//container-->
     </section><!--//reviews-section-->
 
