@@ -7,12 +7,13 @@ use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\Bookmark\BookmarkController;
 use App\Http\Controllers\Administrator\Book\BookController;
-use App\Http\Controllers\Administrator\Genre\GenreController;
+use App\Http\Controllers\Administrator\User\UserController;
 
+use App\Http\Controllers\Administrator\Genre\GenreController;
 use App\Http\Controllers\Administrator\Author\AuthorController;
 use App\Http\Controllers\Administrator\Activity\ActivityController;
-use App\Http\Controllers\Administrator\Dashboard\DashboardController;
 
+use App\Http\Controllers\Administrator\Dashboard\DashboardController;
 use App\Http\Controllers\Administrator\Publisher\PublisherController;
 use App\Http\Controllers\Book\BookController as CollectionController;
 
@@ -55,6 +56,7 @@ Route::prefix('apps')->middleware('auth')->group( function() {
         Route::post('store',[BookController::class, 'store'])->name('apps.books.store');
         Route::get('{book}/edit',[BookController::class, 'edit'])->name('apps.books.edit');
         Route::post('{book}/update',[BookController::class, 'update'])->name('apps.books.update');
+        Route::delete('{book}/delete',[BookController::class, 'delete'])->name('apps.books.delete');
     });
 
     Route::prefix('genre')->group( function() {
@@ -86,6 +88,15 @@ Route::prefix('apps')->middleware('auth')->group( function() {
 
     Route::prefix('activities')->group( function() {
         Route::get('',[ActivityController::class, 'index'])->name('apps.activity');
+    });
+
+    Route::prefix('users')->group( function() {
+        Route::get('',[UserController::class, 'index'])->name('apps.users');
+        Route::get('create',[UserController::class, 'create'])->name('apps.users.create');
+        Route::post('store',[UserController::class, 'store'])->name('apps.users.store');
+        Route::get('{user}/edit',[UserController::class, 'edit'])->name('apps.users.edit');
+        Route::post('{user}/update',[UserController::class, 'update'])->name('apps.users.update');
+        // Route::delete('{user}/delete',[UserController::class, 'delete'])->name('apps.users.delete');
     });
 
     Route::get('logout',[AuthController::class,'logout'])->name('apps.logout');

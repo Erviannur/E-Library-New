@@ -51,10 +51,7 @@
                     <span>Penagaturan</span>
                 </li>
                 <li class="{{ (request()->is('apps/users*')) ? 'active' : '' }}">
-                    <a href="#"><i class="fas fa-users"></i> <span>Pengguna</span></a>
-                </li>
-                <li class="{{ (request()->is('apps/home*')) ? 'active' : '' }}">
-                    <a href="#"><i class="fas fa-tv"></i> <span>Tampilan Awal</span></a>
+                    <a href="{{ route('apps.users')}}"><i class="fas fa-users"></i> <span>Pengguna</span></a>
                 </li>
                 @endif
             </ul>

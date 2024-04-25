@@ -54,9 +54,6 @@
                                 <td>{{ \Carbon\Carbon::parse($item->date_publication)->locale('id_ID')->translatedFormat('d F Y') }}</td>
                                 <td>
                                     <div class="actions">
-                                        <button class="btn btn-sm bg-success-light me-2 " data-bs-toggle="tooltip" data-bs-placement="left" title="Detail">
-                                            <i class="feather-eye"></i>
-                                        </button>
                                         <a href="{{ route('apps.books.edit', $item )}}" class="btn btn-sm bg-success-light me-2 " data-bs-toggle="tooltip" data-bs-placement="left" title="Edit">
                                             <i class="feather-edit"></i>
                                         </a>

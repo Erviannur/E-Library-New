@@ -3,28 +3,29 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Book;
+use App\Models\Role;
+use App\Models\Bookmark;
+use App\Models\SocialAccount;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
-
+use Mtvs\EloquentHashids\HasHashid;
+use Mtvs\EloquentHashids\HashidRouting;
+ 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasHashid, HashidRouting;
 
+    protected $appends = ['hashid'];
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
 
-    protected $guarded = [];
-    
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $guarded = []; 
 
     /**
      * The attributes that should be hidden for serialization.
@@ -34,6 +35,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'id'
     ];
 
     /**
