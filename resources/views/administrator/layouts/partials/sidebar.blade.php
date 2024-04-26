@@ -10,12 +10,9 @@
                     <li class="{{ (request()->is('apps/dashboard*')) ? 'active' : '' }}">
                         <a href="{{ route('apps.dashboard')}}"><i class="fas fa-home"></i> <span>Beranda</span></a>
                     </li>
-                    <li class="menu-title">
-                        <span>Menu Pengunjung</span>
-                    </li>
                 @endif
 
-                @if (auth()->user()->role->name == 'Anggota' || auth()->user()->role->name == 'Administrator' )
+                @if (auth()->user()->role->name == 'Anggota')
                     <li class="{{ (request()->is('apps/profile*')) ? 'active' : '' }}">
                         <a href="{{ route('guest.profile')}}"><i class="fas fa-user"></i> <span>Profil</span></a>
                     </li>

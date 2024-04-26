@@ -5,20 +5,17 @@
     <div class="login-wrapper">
         <div class="container">
             <div class="loginbox">
-                <div class="login-left">
-                    <img class="img-fluid" src="{{ asset('assets/images/pets.png')}}" alt="Logo">
-                </div>
                 <div class="login-right">
                     <div class="login-right-wrap">
-                        <h1>Paw-paw Petshop.</h1>
+                        <h1>Daftar E-Library</h1>
                         <p class="account-subtitle">Sudah punya akun? <a href="{{ route('auth')}}">Masuk</a></p>
-                        <h2>Daftar</h2>
+                        <br>
 
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
                             <div class="form-group">
                                 <label>Username <span class="login-danger">*</span></label>
-                                <input class="form-control" type="text" name="username">
+                                <input class="form-control" type="text" name="name">
                                 <span class="profile-views"><i class="fas fa-user-circle"></i></span>
                             </div>
                             <div class="form-group">

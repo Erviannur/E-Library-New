@@ -1,148 +1,169 @@
 @extends('administrator.layouts.main')
 
 @section('content-wrapper')
-<div class="row">
-    <div class="col-md-12">
-        <div class="profile-header">
-            <div class="row align-items-center">
-                <div class="col-auto profile-image">
-                    <a href="#">
-                        <img class="rounded-circle" alt="User Image" src="assets/img/profiles/avatar-02.jpg">
-                    </a>
+<div class="card shadow-lg">
+    <div class="card-body">
+        <form method="POST" action="{{ route('guest.profile.update', $user->id) }}" enctype="multipart/form-data">
+            @csrf
+            @method('POST')
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="flex-shrink-0">
+                        <div class="d-flex justify-content-center">
+                            <input type="file" name="image" id="fileInput" accept="image/*" style="display: none;">
+                            <label for="fileInput" class="container-profilepic card rounded-circle overflow-hidden d-flex justify-content-center align-items-center">
+                                <div class="photo-preview card-img w-100 h-100">
+                                    @if ($user && $user->image)
+                                        <img src="{{ asset('storage/images/users/' . $user->image) }}" class="w-100 h-100" style="object-fit: cover;" alt="">
+                                    @else
+                                        <img src="{{ asset('path_to_default_image.jpg') }}" class="w-100 h-100" style="object-fit: cover;" alt="">
+                                    @endif
+                                </div>
+                                <div class="middle-profilepic text-center card-img-overlay d-none flex-column justify-content-center">
+                                    <div class="text-profilepic text-primary">
+                                        <i class="fas fa-camera"></i>
+                                        <div class="text-profilepic">Ubah Foto</div>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <p class="text-center">Unggah foto profil dalam format <br>
+                    JPG/JPEG/PNG dengan ukuran 1x1</p>
                 </div>
-                <div class="col ms-md-n2 profile-user-info">
-                    <h4 class="user-name mb-0">John Doe</h4>
-                    <h6 class="text-muted">UI/UX Design Team</h6>
-                    <div class="user-Location"><i class="fas fa-map-marker-alt"></i> Florida, United States</div>
-                    <div class="about-text">Lorem ipsum dolor sit amet.</div>
-                </div>
-                <div class="col-auto profile-btn">
-                    <a href="" class="btn btn-primary">
-                        Edit
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="profile-menu">
-            <ul class="nav nav-tabs nav-tabs-solid">
-                <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#per_details_tab">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#password_tab">Password</a>
-                </li>
-            </ul>
-        </div>
-        <div class="tab-content profile-tab-cont">
 
-            <div class="tab-pane fade show active" id="per_details_tab">
-
-                <div class="row">
-                    <div class="col-lg-9">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title d-flex justify-content-between">
-                                    <span>Personal Details</span>
-                                    <a class="edit-link" data-bs-toggle="modal" href="#edit_personal_details"><i
-                                            class="far fa-edit me-1"></i>Edit</a>
-                                </h5>
-                                <div class="row">
-                                    <p class="col-sm-3 text-muted text-sm-end mb-0 mb-sm-3">Name</p>
-                                    <p class="col-sm-9">John Doe</p>
-                                </div>
-                                <div class="row">
-                                    <p class="col-sm-3 text-muted text-sm-end mb-0 mb-sm-3">Date of Birth</p>
-                                    <p class="col-sm-9">24 Jul 1983</p>
-                                </div>
-                                <div class="row">
-                                    <p class="col-sm-3 text-muted text-sm-end mb-0 mb-sm-3">Email ID</p>
-                                    <p class="col-sm-9"><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                            data-cfemail="a1cbcec9cfc5cec4e1c4d9c0ccd1cdc48fc2cecc">[email&#160;protected]</a>
-                                    </p>
-                                </div>
-                                <div class="row">
-                                    <p class="col-sm-3 text-muted text-sm-end mb-0 mb-sm-3">Mobile</p>
-                                    <p class="col-sm-9">305-310-5857</p>
-                                </div>
-                                <div class="row">
-                                    <p class="col-sm-3 text-muted text-sm-end mb-0">Address</p>
-                                    <p class="col-sm-9 mb-0">4663 Agriculture Lane,<br>
-                                        Miami,<br>
-                                        Florida - 33165,<br>
-                                        United States.</p>
-                                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nama</label>
+                                <input type="text" name="name" id="name" value="{{ $user->name }}" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" name="email" value="{{ $user->email }}" class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="choices-single-no-search" class="form-label">Jenis Kelamin</label>
+                                <select class="form-select" name="gender" id="choices-single-no-search">
+                                    <option value="" selected disabled hidden>Pilih jenis kelamin</option>
+                                    <option value="Male" {{ isset($user) && $user->gender ? 'selected' : '' }}>Laki-laki</option>
+                                    <option value="Female" {{ isset($user) && $user->gender ? 'selected' : '' }}>Perempuan</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title d-flex justify-content-between">
-                                    <span>Account Status</span>
-                                    <a class="edit-link" href="#"><i class="far fa-edit me-1"></i> Edit</a>
-                                </h5>
-                                <button class="btn btn-success" type="button"><i class="fe fe-check-verified"></i>
-                                    Active</button>
-                            </div>
-                        </div>
-
-
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title d-flex justify-content-between">
-                                    <span>Skills </span>
-                                    <a class="edit-link" href="#"><i class="far fa-edit me-1"></i> Edit</a>
-                                </h5>
-                                <div class="skill-tags">
-                                    <span>Html5</span>
-                                    <span>CSS3</span>
-                                    <span>WordPress</span>
-                                    <span>Javascript</span>
-                                    <span>Android</span>
-                                    <span>iOS</span>
-                                    <span>Angular</span>
-                                    <span>PHP</span>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Alamat</label>
+                        <textarea name="address" id="address" class="form-control">{{ $user->address }}</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end gap-2">
+                <button type="submit" class="btn btn-warning text-white">Simpan</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="card shadow-lg">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-4 d-none d-md-block">
+                <h4>Ganti Password Anda</h4>
+                <p style="text-align: justify">
+                    <span>Diperlukan kata sandi yang kuat, masukkan <i>minimal 5 karakter</i>, gabungkan <i>huruf besar, huruf kecil, angka, dan simbol</i> untuk mencegah orang lain mengakses akun Anda.</span>
+                </p>
+            </div>
+            <div class="col-lg-8">
+                <form method="POST" action="{{ route('guest.profile.change-password') }}">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="oldPassword" class="form-label">Password Lama <span class="text-danger">*</span></label>
+                        <input type="password" name="oldPassword" class="form-control @error('oldPassword') is-invalid @enderror">
+                        @error('oldPassword')
+                            <div class="invalid-feedback">
+                                <div class="text-danger">
+                                    {{ $message }}
                                 </div>
                             </div>
-                        </div>
-
+                        @enderror
                     </div>
-                </div>
-            </div>
-
-            <div id="password_tab" class="tab-pane fade">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Change Password</h5>
-                        <div class="row">
-                            <div class="col-md-10 col-lg-6">
-                                <form>
-                                    <div class="form-group">
-                                        <label>Old Password</label>
-                                        <input type="password" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>New Password</label>
-                                        <input type="password" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Confirm Password</label>
-                                        <input type="password" class="form-control">
-                                    </div>
-                                    <button class="btn btn-primary" type="submit">Save Changes</button>
-                                </form>
+                    <div class="mb-3">
+                        <label for="newPassword" class="form-label">Password Baru <span class="text-danger">*</span></label>
+                        <input type="password" name="newPassword" class="form-control @error('newPassword') is-invalid @enderror">
+                        @error('newPassword')
+                            <div class="invalid-feedback">
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
                             </div>
-                        </div>
+                        @enderror
                     </div>
-                </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Konfirmasi Password <span class="text-danger">*</span></label>
+                        <input type="password" name="confirmPassword" class="form-control @error('confirmPassword') is-invalid @enderror">
+                        @error('confirmPassword')
+                            <div class="invalid-feedback">
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="d-flex justify-content-end gap-2">
+                        <button type="submit" class="btn btn-warning text-white">Simpan</button>
+                    </div>
+                </form>
             </div>
-
         </div>
     </div>
 </div>
-</div>
-</div>
 
-</div>
+@push('styles')
+<style>
+    .container-profilepic {
+        width: 250px;
+        height: 250px;
+    }
+    .photo-preview{
+        background-size: cover;
+        background-position: center;
+    }
+    .middle-profilepic {
+        background-color: rgba( 255,255,255, 0.69 );
+    }
+    .container-profilepic:hover .middle-profilepic {
+        display: flex!important;
+        cursor: pointer;
+    }
+</style>
+@endpush
+
+@push('scripts')
+ <script>
+    const fileInput = document.getElementById('fileInput');
+    const photoPreview = document.querySelector('.photo-preview');
+
+    fileInput.addEventListener('change', function() {
+        const selectedFile = this.files[0];
+
+        if (selectedFile) {
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                // Tampilkan foto yang dipilih di dalam .photo-preview
+                photoPreview.style.backgroundImage = `url(${event.target.result})`;
+            };
+
+            // Baca berkas gambar yang dipilih
+            reader.readAsDataURL(selectedFile);
+        }
+    });
+</script>
+@endpush
+
 @endsection

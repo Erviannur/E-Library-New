@@ -65,20 +65,18 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'username' => 'required|max:255',
+            'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:5|confirmed',
         ]);
-
+        
         $user = User::create([
-            'username' => $request->username,
+            'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'is_active' => 1,
             'image' => 'default.png',
-        ]);
-        $customerRole = Role::findByName('Anggota');
-        $user->assignRole($customerRole);
+            'role_id' => 2
+        ]);        
 
         return redirect()->route('auth')->with('success', 'Berhasil Membuat Akun!');
     }

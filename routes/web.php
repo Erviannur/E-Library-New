@@ -43,6 +43,8 @@ Route::prefix('apps')->middleware('auth')->group( function() {
 
     Route::prefix('profile')->group( function() {
         Route::get('',[ProfileController::class, 'index'])->name('guest.profile');
+        Route::post('update',[ProfileController::class, 'update'])->name('guest.profile.update');
+        Route::post('change-password',[ProfileController::class, 'changePassword'])->name('guest.profile.change-password');
     });
 
     Route::prefix('bookmarks')->group( function() {
