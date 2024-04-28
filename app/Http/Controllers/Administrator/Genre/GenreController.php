@@ -50,7 +50,7 @@ class GenreController extends Controller
             'action' => route('apps.genre.store'),
         ];
 
-        return view('genre.form', $data);
+        return view('administrator.genre.form', $data);
     }
 
     public function store(Request $request)

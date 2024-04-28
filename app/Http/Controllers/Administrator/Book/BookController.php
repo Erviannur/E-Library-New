@@ -166,7 +166,7 @@ class BookController extends Controller
             'genres' => Genre::orderBy('name','ASC')->get(),
             'countries' => Country::orderBy('name','ASC')->get(),
             'action' => route('apps.books.update', $book->hashid),
-            'book' => $book
+            'data' => $book
         ];
         return view('administrator.book.form', $data);
     }

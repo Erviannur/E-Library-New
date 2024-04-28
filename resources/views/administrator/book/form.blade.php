@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('administrator.layouts.main')
 
 @section('content-wrapper')
 
@@ -151,6 +151,10 @@
             <div class="mb-3">
                 <label for="genre_id" style="font-weight: bold;">Foto Buku <span class="text-danger">*</span></label>
                 <input type="file" class="dropify" name="image" accept="image/*" value="{{ isset($data) ? $data->image : '' }}"/>
+                @if(isset($data) && $data->image)
+                <span> <i>*Kosongkan form jika tidak ingin mengganti foto</i> </span> <br>
+                <img src="{{ asset('storage/images/books/' . $data->image) }}" alt="{{ $data->image }}" class="img-fluid mb-2" style="max-width: 200px;">
+                @endif
             </div>
 
             <div class="mb-3">
@@ -161,6 +165,9 @@
             <div class="mb-3">
                 <label class="">File Buku <span class="text-danger">*</span></label>
                 <input class="form-control" type="file" name="file" accept=".pdf" value="{{ isset($data) ? $data->file : '' }}">
+                @if(isset($data) && $data->file)
+                <span> <i>*Kosongkan form jika tidak ingin mengganti file</i> </span> <br>
+                @endif
             </div>
 
             <div class="text-end">

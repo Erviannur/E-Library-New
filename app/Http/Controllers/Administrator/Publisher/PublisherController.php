@@ -49,7 +49,7 @@ class PublisherController extends Controller
             'action' => route('apps.publishers.store'),
         ];
 
-        return view('publisher.form', $data);
+        return view('administrator.publisher.form', $data);
     }
 
     public function store(Request $request)

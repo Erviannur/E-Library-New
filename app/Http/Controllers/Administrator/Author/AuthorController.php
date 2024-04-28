@@ -49,7 +49,7 @@ class AuthorController extends Controller
             'action' => route('apps.authors.store'),
         ];
 
-        return view('author.form', $data);
+        return view('administrator.author.form', $data);
     }
 
     public function store(Request $request)
