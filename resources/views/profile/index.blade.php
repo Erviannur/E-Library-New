@@ -13,12 +13,12 @@
                             <input type="file" name="image" id="fileInput" accept="image/*" style="display: none;">
                             <label for="fileInput" class="container-profilepic card rounded-circle overflow-hidden d-flex justify-content-center align-items-center">
                                 <div class="photo-preview card-img w-100 h-100">
+                                    <!-- Gambar pratinjau foto profil -->
                                     @if ($user && $user->image)
-                                        <img src="{{ asset('storage/images/users/' . $user->image) }}" class="w-100 h-100" style="object-fit: cover;" alt="">
-                                    @else
-                                        <img src="{{ asset('path_to_default_image.jpg') }}" class="w-100 h-100" style="object-fit: cover;" alt="">
+                                        <img id="profileImage" src="{{ asset('storage/images/users/' . $user->image) }}" class="w-100 h-100" style="object-fit: cover;" alt="">
                                     @endif
                                 </div>
+                                <!-- Tampilan overlay untuk mengganti foto -->
                                 <div class="middle-profilepic text-center card-img-overlay d-none flex-column justify-content-center">
                                     <div class="text-profilepic text-primary">
                                         <i class="fas fa-camera"></i>
@@ -144,23 +144,18 @@
 @endpush
 
 @push('scripts')
- <script>
+<script>
     const fileInput = document.getElementById('fileInput');
-    const photoPreview = document.querySelector('.photo-preview');
+    const profileImage = document.getElementById('profileImage');
 
-    fileInput.addEventListener('change', function() {
-        const selectedFile = this.files[0];
-
-        if (selectedFile) {
+    fileInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
             const reader = new FileReader();
-
-            reader.onload = function(event) {
-                // Tampilkan foto yang dipilih di dalam .photo-preview
-                photoPreview.style.backgroundImage = `url(${event.target.result})`;
+            reader.onload = function(e) {
+                profileImage.src = e.target.result;
             };
-
-            // Baca berkas gambar yang dipilih
-            reader.readAsDataURL(selectedFile);
+            reader.readAsDataURL(file);
         }
     });
 </script>
