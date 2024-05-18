@@ -1,65 +1,68 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Dokumentasi Aplikasi E-Library
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# E-Library - Dokumentasi Proyek dan Panduan Pengguna
 
-## About Laravel
+## Pendahuluan
+Selamat datang di dokumentasi proyek E-Library. Dokumen ini akan memberikan panduan tentang proyek ini, mencakup deskripsi proyek, panduan pengguna, serta tutorial untuk menjalankan aplikasi dari awal.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Gambaran Umum
+E-Library adalah sebuah aplikasi web yang menyediakan akses kepada pengguna untuk membaca, mencari, dan mengakses berbagai jenis materi bacaan secara elektronik. Tujuan dibuatnya aplikasi E-Library yaitu untuk memudahkan pengguna dalam mengakses dan mengelola bahan bacaan secara efisien dan efektif, tanpa terbatas oleh batasan fisik tempat atau waktu. Aplikasi ini dibangun dengan menggunakan Laravel, sebuah framework PHP yang kuat dan modern.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Fitur Pengguna
+- Baca Buku
+- Simpan Buku
+- Profil
+- Komentar
+- Dashboard Admin
+- Kelola Master Data 
+- Kelola Aktivitas
+- Kelola Pengguna
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Teknologi dan Bahasa Pemrograman
+Aplikasi ini dikembangkan menggunakan teknologi berikut:
+- Bahasa Pemrograman: PHP
+- Framework: Laravel 10 
+- Database: MySQL
+## Peran Pengguna
+- Administrator
+- Pengunjung
 
-## Learning Laravel
+## Panduan Pengguna
+### Instalasi dan Konfigurasi
+#### Langkah 1: Unduh Proyek
+1.	Clone repositori proyek ini dari GitLab dengan perintah: git clone https://github.com/Erviannur/E-Library-New.git
+#### Langkah 2: Persiapan Lingkungan
+1.	Pastikan Anda memiliki PHP, Composer, dan MySQL terinstal di komputer Anda.
+2.	Buat file `.env` berdasarkan contoh `.env.example` dan atur konfigurasi database sesuai dengan lingkungan Anda.
+3.	Jalankan perintah berikut untuk menginstal dependensi: composer install
+4.	Generate key aplikasi: php artisan key:generate
+5.	Jalankan migrasi dan seeder untuk mengisi database dengan data awal: php artisan migrate --seed
+#### Langkah 3: Jalankan Aplikasi
+1.	Jalankan aplikasi dengan perintah: php artisan serve
+2.	Buka aplikasi dalam browser pada alamat [http://localhost:8000]
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Login
+1.	**Buka aplikasi dalam browser.**
+2.	**Login menggunakan kredensial yang sudah ada.**
+-	**Isi Email dan Kata Sandi**: Masukkan alamat email dan kata sandi Anda yang telah Anda daftarkan sebelumnya.
+-	**Klik "Masuk"**: Klik tombol "Masuk" untuk mengirimkan informasi login Anda.
+-	**Selamat!**: Anda sekarang masuk ke Aplikasi E-Library dan dapat mulai mencari, membaca, dan menyimpan buku.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Register
+1.	**Daftar jika anda belum memiliki akun**
+-	**Klik "Daftar"**: Klik opsi "Daftar" pada bagian "Belum Punya Akun? Daftar".
+-	**Isi Form Daftar**: Isi seluruh form dengan data yang sesuai. Masukkan nama Anda untuk form Username, masukkan alamat email Anda untuk form E-mail, masukkan kata sandi Anda untuk form Password, dan masukkan ulang kata sandi Anda untuk form Konfirmasi Password.
+-	**Klik "Daftar"**: Klik tombol "Daftar" untuk mendaftarkan akun Anda.
+-	**Selamat!**: Anda sekarang terdaftar di aplikasi E-Library. Silahkan Login untuk mulai menggunakan aplikasi E-Library.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Data Kredensial Default
+1.	**Administrator**:
+-	email: admin@gmail.com
+-	password: rosaline123
+    
+2.	**Pengunjung** 
+-	email: caroline@gmail.com
+-	password: caroline123
 
 ## License
 
