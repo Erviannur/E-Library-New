@@ -64,6 +64,3 @@ Aplikasi ini dikembangkan menggunakan teknologi berikut:
 -	email: caroline@gmail.com
 -	password: caroline123
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
